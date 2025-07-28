@@ -32,4 +32,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/contagem-front
-          token: ${{ secrets.CONTAGEM_TOKEN }}
+          token: ${{ secrets.FRONT }}
