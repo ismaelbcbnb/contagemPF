@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write    # Permite push no branch gh-pages
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -32,3 +32,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/contagem-front
+          token: ${{ secrets.GITHUB_TOKEN }}
