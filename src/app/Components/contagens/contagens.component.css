@@ -1,0 +1,57 @@
+.botoes{
+    padding-top: 10px;
+    display: flex;
+    justify-content:flex-end;
+    gap: 6px;
+}
+
+.selecao{
+    display: flex;
+    justify-content: space-between;
+}
+.form-group{
+    padding-top: 10px;
+}
+
+.input{
+    margin-top: 10px;
+}
+
+.table-title {
+    text-align: center;
+}
+
+.row-actions{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.checkbox{
+    display:flex;
+    align-items: center;
+    vertical-align: center;
+    gap: 7px;
+}
+
+td{
+    text-align: center;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.linha{
+    vertical-align: middle;
+
+}
+
+img{
+    width: 20%;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+}

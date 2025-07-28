@@ -1,0 +1,38 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+div.links{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 15px;
+}
+
+.nav-link{
+    color: black;
+}
+
+.imagem {
+    width: 32px;
+    height: 32px;
+    align-items: right;
+}
+
+.logo {
+    display: flex;
+    justify-content: right;
+}
+
+nav-item {
+    gap: 10px;
+}
+

@@ -1,0 +1,90 @@
+<div class="container p-2" *ngIf="visibilidadeTabela">
+    <div class="border border-light rounded p-5" >
+        <app-navegacao></app-navegacao>        
+    </div>
+    <hr>
+    <div class="selecao">
+                <button type="button" class="btn btn-sm btn-primary" (click)="ExibirFormularioCadastro()">Cadastrar Mês/Ano</button>
+            </div>
+    <hr>
+    <div class="container p-20" >
+        <table class="table table-striped table-hover table-sm" *ngIf="meses">
+            <tbody>
+                <tr class="linha" *ngFor="let item of meses">
+                    <td>{{item.mesAno}}</td>
+                    <td class="row-actions">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" (click)="ExibirFormularioAtualizacao(item.idMes)">Alterar</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(item.idMes , item.mesAno , conteudoModal)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container p-5" *ngIf="visibilidadeFormulario">
+    <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
+            <h6>{{tituloFormulario}}</h6>
+            <hr>
+            <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+                <div class="form-group">
+                    <label>Mês/Ano</label>
+                    <input type="text" placeholder="Janeiro/2025" class="form-control form-control-sm" formControlName="mesAno">
+                </div>
+                
+                <div class="container">
+                    <div class="botoes">
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Salvar</button>
+                        </div>
+                        <div class="pl-1">
+                            <button type="button" class="btn btn-sm btn-light" (click)="Voltar()">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container p-5" *ngIf="visibilidadeFormularioAtualizar">
+    <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
+            <h6>{{tituloFormulario}}</h6>
+            <hr>
+            <form [formGroup]="formulario" (ngSubmit)="EnviarFormularioAtualizar()">
+                <div class="form-group">
+                    <label>Mês/Ano</label>
+                    <input type="text" placeholder="Janeiro/2025" class="form-control form-control-sm" formControlName="mesAno">
+                </div>
+                <div class="container">
+                    <div class="botoes">
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Salvar</button>
+                        </div>
+                        <div class="pl-1">
+                            <button type="button" class="btn btn-sm btn-light" (click)="Voltar()">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-template #conteudoModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de exclusão</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Prosseguir com a exclusão de {{mesAnoExcluir}}?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modalRef?.hide()">Não</button>
+      <button type="button" class="btn btn-outline-danger" (click)="ExcluirMesAno(idMes)">Sim</button>
+    </div>
+</ng-template>
